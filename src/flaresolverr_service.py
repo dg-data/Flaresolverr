@@ -222,7 +222,7 @@ def _cmd_sessions_destroy(req: V1RequestBase) -> V1ResponseBase:
 def _resolve_challenge(req: V1RequestBase, method: str) -> ChallengeResolutionT:
     timeout = req.maxTimeout / 1000
     driver = None
-    options = [] if req.proxy is None else [f'--proxy-server={req.proxy['url']}']
+    options = [] if req.proxy is None else [f"--proxy-server={req.proxy['url']}"]
         
     try:
         if req.session:
