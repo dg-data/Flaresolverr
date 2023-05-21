@@ -36,7 +36,7 @@ def get_flaresolverr_version() -> str:
         return FLARESOLVERR_VERSION
 
 
-def get_webdriver() -> WebDriver:
+def get_webdriver(arguments=[]) -> WebDriver:
     global PATCHED_DRIVER_PATH
     logging.debug('Launching web browser...')
 
@@ -54,7 +54,8 @@ def get_webdriver() -> WebDriver:
     options.add_argument('--disable-software-rasterizer')
     options.add_argument('--ignore-certificate-errors')
     options.add_argument('--ignore-ssl-errors')
-
+    for arg in arguments:
+        options.add_argument(arg)
     # note: headless mode is detected (options.headless = True)
     # we launch the browser in head-full mode with the window hidden
     windows_headless = False
