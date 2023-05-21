@@ -56,6 +56,7 @@ def get_webdriver(arguments=[]) -> WebDriver:
     options.add_argument('--ignore-ssl-errors')
     for arg in arguments:
         options.add_argument(arg)
+        logging.info(f'Adding option {arg}')
     # note: headless mode is detected (options.headless = True)
     # we launch the browser in head-full mode with the window hidden
     windows_headless = False
